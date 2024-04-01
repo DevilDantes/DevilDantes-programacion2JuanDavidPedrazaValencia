@@ -6,6 +6,14 @@ import java.util.Collections;
 public class vector {
     public static void main(String[] args) {
     int v[] = {1,2,3,4,5,6,7,8,9,10,11};
+    ArrayList<Integer> a = new ArrayList();
+    System.out.println("El tamaño de la lista es: " +a.size());
+    System.out.println(a);
+    ArrayList<Integer> z = new ArrayList();
+        z.add(0, 1);
+        z.add(1, 2);
+        z.add(2, 3);
+        
     System.out.println(v[0]);
     ArrayList<Integer> c = new ArrayList();
         c.add(0, 100);
