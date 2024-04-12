@@ -30,12 +30,16 @@ class Personas:
     def agregar():
         print ('HAZ SELECCIONADO LA FUNCIONALIDAD AGREGAR')
         nombre=input("ingrese su nombre: ")
-        input("ingrese el numero de cedula o tarjeta de identidad: ")
-        input("ingrese su genero: ")
-        input("ingrese su correo electronico: ")
-        input("ingrese su numero de telefono: ")
+        numerocc=input("ingrese el numero de cedula o tarjeta de identidad: ")
+        genero=input("ingrese su genero: ")
+        correo=input("ingrese su correo electronico: ")
+        numerotel=input("ingrese su numero de telefono: ")
         user.append(nombre)
-        return f'agreg1o el dato',nombre
+        user.append(numerocc)
+        user.append(genero)
+        user.append(correo)
+        user.append(numerotel)
+        return f'agreg1o el dato',nombre, numerocc, genero, correo, numerotel
     
     def listar():   
         print("HAZ SELECCIONADO LA FUNCIONALIDAD LISTAR")
@@ -43,13 +47,13 @@ class Personas:
     
     def refrescar():
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        posicion = int(input("Ingrese la posición de el usuario a actualizar: "))
-        if 0 <= posicion < len(user):
-            nombre = input("Ingrese el cambio: ")
-            user[posicion] = nombre
-            return f'Se actualizada los datos del usuario' ,posicion, 'La lista actual es: ', user
-        else:
-            return "La posición ingresada no es válida."
+        A=input("Ingrese la persona a actualizar ") 
+        cambio=A in user   
+        if(cambio==True):
+            actualizar=input("ingrese el dato nuevo ")
+            posicion=user.index(A)
+            user[posicion]=actualizar
+        
 
     def eliminar():
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
@@ -97,14 +101,13 @@ class universidades:
     
     def refrescar():
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        posicion = int(input("Ingrese la posición de la universidad a actualizar: "))
-        if 0 <= posicion < len(user):
-            cambio = input("Ingrese el cambio de nombre de la universidad: ")
-            user[posicion] = cambio
-            return f'Se actualizada los datos dela universidad' ,posicion , 'La lista actual es: ', user
-        else:
-            return "La posición ingresada no es válida."
-    
+        A=input("Ingrese la persona a actualizar ") 
+        cambio=A in user   
+        if(cambio==True):
+            actualizar=input("ingrese el dato nuevo ")
+            posicion=user.index(A)
+            user[posicion]=actualizar
+            
     def eliminar():
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
         elim=input("ingrese el usuario a eliminar: ")
@@ -150,13 +153,12 @@ class Notas:
     
     def refrescar():
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        posicion = int(input("Ingrese la posición de la universidad a actualizar: "))
-        if 0 <= posicion < len(user):
-            cambio = input("Ingrese el cambio de nota: ")
-            user[posicion] = cambio
-            return f'Se actualizada los datos de la nota' ,posicion , 'La lista actual es: ', user
-        else:
-            return "La posición ingresada no es valida."
+        A=input("Ingrese la persona a actualizar ") 
+        cambio=A in user   
+        if(cambio==True):
+            actualizar=input("ingrese el dato nuevo ")
+            posicion=user.index(A)
+            user[posicion]=actualizar
     
     def eliminar():
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
@@ -202,16 +204,16 @@ class Asignatura:
     
     def refrescar():
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        posicion = int(input("Ingrese la posición de la asignatura a actualizar: "))
-        if 0 <= posicion < len(user):
-            cambio = input("Ingrese el cambio de asignatura: ")
-            user[posicion] = cambio
-            return f'Se actualizada los datos de la asignatura' ,posicion , 'La lista actual es: ', user
-        else:
-            return "La posición ingresada no es valida."
+        A=input("Ingrese la persona a actualizar ") 
+        cambio=A in user   
+        if(cambio==True):
+            actualizar=input("ingrese el dato nuevo ")
+            posicion=user.index(A)
+            user[posicion]=actualizar
     
     def eliminar():
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
         elim=input("ingrese la asignatura a quitar: ")
         user.remove(elim)
         return f'la asignatura eliminado es',elim,'la lista actual es', user              
+            
