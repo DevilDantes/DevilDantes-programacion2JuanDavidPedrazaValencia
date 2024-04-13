@@ -1,7 +1,6 @@
 class Personas:
-    def __init__(self) :
-        global user
-        user=[]
+    def __init__(self):
+        self.persona = []
 
     def menu(self):
         while True:
@@ -15,57 +14,61 @@ class Personas:
             opcion = input("Seleccione una opción: ")
 
             if opcion == "1":
-                print(Personas.agregar())
+                print(Personas.agregar(self))
             elif opcion == "2":
-                print(Personas.listar())
+                print(Personas.listar(self))
             elif opcion == "3":
-                print(Personas.refrescar())
+                print(Personas.refrescar(self))
             elif opcion == "4":
-                print(Personas.eliminar())
+                print(Personas.eliminar(self))
             elif opcion == "5":
                 break
             else:
                 print("Opción inválida. Por favor, seleccione nuevamente.")
     
-    def agregar():
+    def agregar(self):
         print ('HAZ SELECCIONADO LA FUNCIONALIDAD AGREGAR')
-        nombre=input("ingrese su nombre: ")
-        numerocc=input("ingrese el numero de cedula o tarjeta de identidad: ")
-        genero=input("ingrese su genero: ")
-        correo=input("ingrese su correo electronico: ")
-        numerotel=input("ingrese su numero de telefono: ")
-        user.append(nombre)
-        user.append(numerocc)
-        user.append(genero)
-        user.append(correo)
-        user.append(numerotel)
-        return f'agreg1o el dato',nombre, numerocc, genero, correo, numerotel
-    
-    def listar():   
-        print("HAZ SELECCIONADO LA FUNCIONALIDAD LISTAR")
-        return f'los datos de la base de datos hasta ahora son',user
-    
-    def refrescar():
-        print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        A=input("Ingrese la persona a actualizar ") 
-        cambio=A in user   
-        if(cambio==True):
-            actualizar=input("ingrese el dato nuevo ")
-            posicion=user.index(A)
-            user[posicion]=actualizar
-        
+        nombre = input("Ingrese el nombre de la persona: ")
+        edad = input("Ingrese la edad de la persona: ")
+        sexo = input("Ingrese el sexo de la persona: ")
+        cedula = input("Ingrese la cedula de la persona: ")
+        direccion = input("Ingrese la direccion de la persona: ")
+        self.persona.append({"nombre": nombre, "edad": edad, "sexo": sexo, "cedula":cedula, "direccion": direccion})
+        print("el usuario ha sido creado con éxito.")
 
-    def eliminar():
+        return f'agreg1o el dato',nombre, edad, sexo, cedula, direccion
+    
+    def listar(self):   
+        print("HAZ SELECCIONADO LA FUNCIONALIDAD LISTAR")
+        return f'los datos de la base de datos hasta ahora son',self.persona
+    
+    def refrescar(self):
+        print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
+        nombre = input("Ingrese el usuario a cambiar: ")
+        for persona in self.persona:
+            if persona['nombre'] == nombre:
+                print("Ingrese los nuevos datos:")
+                nombre = input("Nombre: ")
+                edad = input("Edad: ")
+                sexo = input("Sexo: ")
+                cedula = input("Cédula: ")
+                direccion = input("Dirección: ")
+                persona.update({"nombre": nombre, "edad": edad, "sexo": sexo, "cedula": cedula, "direccion": direccion})
+                print("Datos de la persona actualizados con éxito.")
+                return
+        print("Usuario no encontrado.")
+
+    def eliminar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
         elim=input("ingrese el usuario a eliminar: ")
-        user.remove(elim)
-        return f'el usuario eliminado es',elim,'la lista actual es', user
+        self.persona.remove(elim)
+        return f'el usuario eliminado es',elim,'la lista actual es', self.persona
 
 class universidades:
 
     def __init__(self) :
-        global user
-        user=[]
+        self.universidades = []
+
     def menu2(self):
         while True:
             print("\nMENU Universidades")
@@ -77,47 +80,52 @@ class universidades:
             opcion = input("Seleccione una opción: ")
 
             if opcion == "1":
-                print(universidades.agregar())
+                print(universidades.agregar(self))
             elif opcion == "2":
-                print(universidades.listar())
+                print(universidades.listar(self))
             elif opcion == "3":
-                print(universidades.refrescar())
+                print(universidades.refrescar(self))
             elif opcion == "4":
-                print(universidades.eliminar())
+                print(universidades.eliminar(self))
             elif opcion == "5":
                 break
             else:
                 print("Opción inválida. Por favor, seleccione nuevamente.")
     
-    def agregar():
+    def agregar(self):
         print ('HAZ SELECCIONADO LA FUNCIONALIDAD AGREGAR')
-        Per=input("ingrese la universidad: ")
-        user.append(Per)
-        return f'agreg1o el dato',Per
+        nombre = input("Ingrese el nombre de la universidad: ")
+        direccion = input("Ingrese la direccion de la universidad: ")        
+        self.universidades.append({"nombre": nombre, "direccion": direccion})
+        return f'los datos ingresados',nombre, direccion
     
-    def listar():   
+    def listar(self):   
         print("HAZ SELECCIONADO LA FUNCIONALIDAD LISTAR")
-        return f'los datos de la base de datos hasta ahora son',user
+        return f'los datos de la base de datos hasta ahora son',self.universidades
     
-    def refrescar():
+    def refrescar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        A=input("Ingrese la persona a actualizar ") 
-        cambio=A in user   
-        if(cambio==True):
-            actualizar=input("ingrese el dato nuevo ")
-            posicion=user.index(A)
-            user[posicion]=actualizar
+        nombre = input("Ingrese el nombre de la persona que desea actualizar: ")
+        for universidad in self.universidades:
+            if universidad['nombre'] == nombre:
+                print("Ingrese los nuevos datos:")
+                nombre = input("Nombre: ")
+                direccion = input("Dirección: ")
+                universidad.update({"nombre": nombre, "direccion": direccion})
+                print("Datos de la Universidad actualizados con éxito.")
+                return
+        print("La Datos de la informacion no encotrados.")
             
-    def eliminar():
+    def eliminar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
         elim=input("ingrese el usuario a eliminar: ")
-        user.remove(elim)
-        return f'la universidad eliminado es',elim,'la lista actual es', user
+        self.universidades.remove(elim)
+        return f'la universidad eliminado es',elim,'la lista actual es', self.universidades
     
 class Notas:
     def __init__(self) :
-        global user
-        user=[]
+        self.notas = []
+
     def menu3(self):
         while True:
             print("\nMENU Universidades")
@@ -129,46 +137,46 @@ class Notas:
             opcion = input("Seleccione una opción: ")
 
             if opcion == "1":
-                print(Notas.agregar())
+                print(Notas.agregar(self))
             elif opcion == "2":
-                print(Notas.listar())
+                print(Notas.listar(self))
             elif opcion == "3":
-                print(Notas.refrescar())
+                print(Notas.refrescar(self))
             elif opcion == "4":
-                print(Notas.eliminar())
+                print(Notas.eliminar(self))
             elif opcion == "5":
                 break
             else:
                 print("Opción inválida. Por favor, seleccione nuevamente.")
     
-    def agregar():
+    def agregar(self):
         print ('HAZ SELECCIONADO LA FUNCIONALIDAD AGREGAR')
-        uni=input("ingrese las notas: ")
-        user.append(uni)
-        return f'agreg1o el dato',uni
+        nota=input("ingrese las notas: ")
+        self.notas.append(nota)
+        return f'agreg1o el dato',nota
     
-    def listar():   
+    def listar(self):   
         print("HAZ SELECCIONADO LA FUNCIONALIDAD LISTAR")
-        return f'los datos de la base de datos hasta ahora son',user
+        return f'los datos de la base de datos hasta ahora son',self.notas
     
-    def refrescar():
+    def refrescar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
         A=input("Ingrese la persona a actualizar ") 
-        cambio=A in user   
+        cambio=A in self.notas   
         if(cambio==True):
             actualizar=input("ingrese el dato nuevo ")
-            posicion=user.index(A)
-            user[posicion]=actualizar
-    
-    def eliminar():
+            posicion=self.notas.index(A)
+            self.notas[posicion]=actualizar
+      
+    def eliminar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
         elim=input("ingrese la nota a eliminar: ")
-        user.remove(elim)
-        return f'la nota eliminado es',elim,'la lista actual es', user
+        self.notas.remove(elim)
+        return f'la nota eliminado es',elim,'la lista actual es', self.notas
 class Asignatura:
     def __init__(self) :
-        global user
-        user=[]
+        self.Asignatura=[]
+
     def menu4(self):
         while True:
             print("\nMENU Universidades")
@@ -180,40 +188,49 @@ class Asignatura:
             opcion = input("Seleccione una opción: ")
 
             if opcion == "1":
-                print(Notas.agregar())
+                print(Notas.agregar(self))
             elif opcion == "2":
-                print(Notas.listar())
+                print(Notas.listar(self))
             elif opcion == "3":
-                print(Notas.refrescar())
+                print(Notas.refrescar(self))
             elif opcion == "4":
-                print(Notas.eliminar())
+                print(Notas.eliminar(self))
             elif opcion == "5":
                 break
             else:
                 print("Opción inválida. Por favor, seleccione nuevamente.")
     
-    def agregar():
-        print ('HAZ SELECCIONADO LA FUNCIONALIDAD AGREGAR')
-        uni=input("ingrese las Asignaturas: ")
-        user.append(uni)
-        return f'agreg1o el dato',uni
+    def agregar(self):
+        nombre = input("Ingrese el nombre de la asignatura: ")
+        profesor = input("Ingrese el nombre del profesor de la asignatura: ")
+        self.Asignatura.append({"nombre": nombre, "profesor": profesor})
+        print("Asignatura creada con éxito.")
+
+    def listar_asignaturas(self):
+        return f'agreg1o el dato',self.Asignatura
     
-    def listar():   
+    def listar(self):   
         print("HAZ SELECCIONADO LA FUNCIONALIDAD LISTAR")
-        return f'los datos de la base de datos hasta ahora son',user
+        nombre = input("Ingrese el nombre de la asignatura que desea actualizar: ")
+        for asignatura in self.Asignatura:
+            if asignatura['nombre'] == nombre:
+                print("Ingrese los nuevos datos:")
+                n_nombre = input("Nuevo nombre de la asignatura: ")
+                n_profesor = input("Nuevo nombre del profesor: ")
+                asignatura['nombre'] = n_nombre
+                asignatura['profesor'] = n_profesor
+                print("Asignatura actualizada con éxito.")
+                return
+        print("La asignatura no se encontró.")     
+        return f'los datos de la base de datos hasta ahora son',self.Asignatura
     
-    def refrescar():
+    def refrescar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        A=input("Ingrese la persona a actualizar ") 
-        cambio=A in user   
-        if(cambio==True):
-            actualizar=input("ingrese el dato nuevo ")
-            posicion=user.index(A)
-            user[posicion]=actualizar
+       
     
-    def eliminar():
+    def eliminar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
         elim=input("ingrese la asignatura a quitar: ")
-        user.remove(elim)
-        return f'la asignatura eliminado es',elim,'la lista actual es', user              
-            
+        self.Asignatura.remove(elim)
+        return f'la asignatura eliminado es',elim,'la lista actual es', self.Asignatura              
+        
