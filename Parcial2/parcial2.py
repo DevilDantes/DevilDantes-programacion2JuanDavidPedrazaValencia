@@ -54,15 +54,18 @@ class Personas:
                 cedula = input("Cédula: ")
                 direccion = input("Dirección: ")
                 persona.update({"nombre": nombre, "edad": edad, "sexo": sexo, "cedula": cedula, "direccion": direccion})
-                print("Datos de la persona actualizados con éxito.")
+                print("Datos del usuario actualizados con éxito.")
                 return
         print("Usuario no encontrado.")
 
     def eliminar(self):
-        print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
-        elim=input("ingrese el usuario a eliminar: ")
-        self.persona.remove(elim)
-        return f'el usuario eliminado es',elim,'la lista actual es', self.persona
+        nombre = input("Ingrese el nombre de usuario que desea eliminar: ")
+        for persona in self.persona:
+            if persona['nombre'] == nombre:
+                self.persona.remove(persona)
+                print("El usuario ha sido eliminado con éxito.")
+                return
+        return f'el usuario eliminado es',persona,'la lista actual es', self.persona
 
 class universidades:
 
@@ -105,7 +108,7 @@ class universidades:
     
     def refrescar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        nombre = input("Ingrese el nombre de la persona que desea actualizar: ")
+        nombre = input("Ingrese los datos de la universidad que desea actualizar: ")
         for universidad in self.universidades:
             if universidad['nombre'] == nombre:
                 print("Ingrese los nuevos datos:")
@@ -114,13 +117,16 @@ class universidades:
                 universidad.update({"nombre": nombre, "direccion": direccion})
                 print("Datos de la Universidad actualizados con éxito.")
                 return
-        print("La Datos de la informacion no encotrados.")
+        print("La Datos de la universidad no encotrados.")
             
     def eliminar(self):
-        print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
-        elim=input("ingrese el usuario a eliminar: ")
-        self.universidades.remove(elim)
-        return f'la universidad eliminado es',elim,'la lista actual es', self.universidades
+        nombre = input("Ingrese el nombre de la universidad que desea eliminar: ")
+        for universidad in self.universidades:
+            if universidad['nombre'] == nombre:
+                self.universidades.remove(universidad)
+                print("Universidad a sido eliminada éxitosamente    .")
+                return
+        print("La universidad no encontrada.")
     
 class Notas:
     def __init__(self) :
@@ -128,7 +134,7 @@ class Notas:
 
     def menu3(self):
         while True:
-            print("\nMENU Universidades")
+            print("\nMENU Notas")
             print("1. Crear")
             print("2. Listar")
             print("3. Actualizar")
@@ -153,33 +159,38 @@ class Notas:
         print ('HAZ SELECCIONADO LA FUNCIONALIDAD AGREGAR')
         nota=input("ingrese las notas: ")
         self.notas.append(nota)
-        return f'agreg1o el dato',nota
+        return f'el dato de la nota',nota
     
     def listar(self):   
         print("HAZ SELECCIONADO LA FUNCIONALIDAD LISTAR")
-        return f'los datos de la base de datos hasta ahora son',self.notas
+        return f'las nota hasta ahora son',self.notas
     
     def refrescar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-        A=input("Ingrese la persona a actualizar ") 
+        A=input("Ingrese la nota a actualizar ") 
         cambio=A in self.notas   
         if(cambio==True):
-            actualizar=input("ingrese el dato nuevo ")
+            actualizar=input("ingrese la nueva nota a actualizar ")
             posicion=self.notas.index(A)
             self.notas[posicion]=actualizar
       
     def eliminar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
-        elim=input("ingrese la nota a eliminar: ")
-        self.notas.remove(elim)
-        return f'la nota eliminado es',elim,'la lista actual es', self.notas
+        Notas = int(input("Ingrese la nota que desea eliminar: "))
+        for nota in self.notas:  
+            if nota == str(Notas):  
+                self.notas.remove(nota)
+            print("La nota fue eliminada con éxito.")
+            return
+        print("La nota no se encontró.")
+
 class Asignatura:
     def __init__(self) :
         self.Asignatura=[]
 
     def menu4(self):
         while True:
-            print("\nMENU Universidades")
+            print("\nMENU Asignatura")
             print("1. Crear")
             print("2. Listar")
             print("3. Actualizar")
@@ -188,13 +199,13 @@ class Asignatura:
             opcion = input("Seleccione una opción: ")
 
             if opcion == "1":
-                print(Notas.agregar(self))
+                print(Asignatura.agregar(self))
             elif opcion == "2":
-                print(Notas.listar(self))
+                print(Asignatura.listar(self))
             elif opcion == "3":
-                print(Notas.refrescar(self))
+                print(Asignatura.refrescar(self))
             elif opcion == "4":
-                print(Notas.eliminar(self))
+                print(Asignatura.eliminar(self))
             elif opcion == "5":
                 break
             else:
@@ -206,31 +217,32 @@ class Asignatura:
         self.Asignatura.append({"nombre": nombre, "profesor": profesor})
         print("Asignatura creada con éxito.")
 
-    def listar_asignaturas(self):
-        return f'agreg1o el dato',self.Asignatura
-    
     def listar(self):   
         print("HAZ SELECCIONADO LA FUNCIONALIDAD LISTAR")
+        return f'las asignatura hasta ahora son',self.Asignatura
+    
+    def refrescar(self):
+        print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
         nombre = input("Ingrese el nombre de la asignatura que desea actualizar: ")
         for asignatura in self.Asignatura:
             if asignatura['nombre'] == nombre:
                 print("Ingrese los nuevos datos:")
-                n_nombre = input("Nuevo nombre de la asignatura: ")
-                n_profesor = input("Nuevo nombre del profesor: ")
-                asignatura['nombre'] = n_nombre
-                asignatura['profesor'] = n_profesor
-                print("Asignatura actualizada con éxito.")
+                nuevo_nombre = input("Nuevo nombre de la asignatura: ")
+                nuevo_profesor = input("Nuevo nombre del profesor: ")
+                asignatura['nombre'] = nuevo_nombre
+                asignatura['profesor'] = nuevo_profesor
+                print("Asignatura ha sido actualizada con éxito.")
                 return
-        print("La asignatura no se encontró.")     
-        return f'los datos de la base de datos hasta ahora son',self.Asignatura
-    
-    def refrescar(self):
-        print("HAZ SELECCIONADO LA FUNCIONALIDAD ACTUALIZAR")
-       
+        print("La asignatura no se fue encontrada.") 
     
     def eliminar(self):
         print("HAZ SELECCIONADO LA FUNCIONALIDAD ELIMINAR")
-        elim=input("ingrese la asignatura a quitar: ")
-        self.Asignatura.remove(elim)
-        return f'la asignatura eliminado es',elim,'la lista actual es', self.Asignatura              
+        nombre = input("Ingrese el nombre de la asignatura que desea eliminar: ")
+        for asignatura in self.Asignatura:
+            if asignatura['nombre'] == nombre:
+                self.Asignatura.remove(asignatura)
+                print("Asignatura eliminada con éxito.")
+                return
+        print("La asignatura no se encontró.")         
         
+
