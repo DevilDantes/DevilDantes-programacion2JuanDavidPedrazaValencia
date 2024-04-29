@@ -1,15 +1,14 @@
 import tkinter as tk 
 def registrar():
-    Lframenombre=tk.Label(frame, text=cnombre.get())
-    Lframenombre.pack()
-    Lframeapellido=tk.Label(frame, text=capellido.get())
-    Lframeapellido.pack()
-    Lframeedad=tk.Label(frame, text=cedad.get())
-    Lframeedad.pack()
-    Lframedireccion=tk.Label(frame, text=cdireccion.get())
-    Lframedireccion.pack()
-    Lframesexo=tk.Label(frame, text=csexo.get())
-    Lframesexo.pack
+    pop_up = tk.Toplevel(ventana)
+    pop_up.title("Datos registrados")
+    
+    tk.Label(pop_up, text="Nombre: " + cnombre.get()).pack()
+    tk.Label(pop_up, text="Apellido: " + capellido.get()).pack()
+    tk.Label(pop_up, text="Edad: " + cedad.get()).pack()
+    tk.Label(pop_up, text="Dirección: " + cdireccion.get()).pack()
+    tk.Label(pop_up, text="Sexo: " + csexo.get()).pack()
+
 
 ventana=tk.Tk()
 ventana.title("Tecnar App")
@@ -44,7 +43,5 @@ csexo.grid(row = 10, column = 0, pady = 4)
 Registrar = tk.Button(ventana, text="Registrar", command=registrar)
 Registrar.grid(row = 11, column = 0, pady = 4)
 
-frame = tk.Frame(ventana, width=300, height=150, relief="raised", bd=1)
-frame.grid(row = 12, column = 0, pady = 4)
 
 ventana.mainloop()
