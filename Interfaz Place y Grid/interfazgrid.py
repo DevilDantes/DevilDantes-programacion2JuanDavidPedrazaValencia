@@ -1,14 +1,9 @@
 import tkinter as tk 
-def registrar():
-    pop_up = tk.Toplevel(ventana)
-    pop_up.title("Datos registrados")
-    
-    tk.Label(pop_up, text="Nombre: " + cnombre.get()).pack()
-    tk.Label(pop_up, text="Apellido: " + capellido.get()).pack()
-    tk.Label(pop_up, text="Edad: " + cedad.get()).pack()
-    tk.Label(pop_up, text="Dirección: " + cdireccion.get()).pack()
-    tk.Label(pop_up, text="Sexo: " + csexo.get()).pack()
+from tkinter import messagebox
 
+def registrar():
+    mensaje = f"Nombre: {cnombre.get()}\nApellido: {capellido.get()}\nEdad: {cedad.get()}\nDirección: {cdireccion.get()}\nSexo: {elige_genero.get()}\nTeléfono: {ctelefono.get()}\nCiudad: {selecciona_ciudad.get()}"
+    messagebox.showinfo("Datos registrados", mensaje)
 
 ventana=tk.Tk()
 ventana.title("Tecnar App")
@@ -37,11 +32,32 @@ cdireccion.grid(row = 8, column = 0, pady = 4)
 
 lsexo=tk.Label(ventana,text="sexo:")
 lsexo.grid(row = 9, column= 0, pady= 4)
-csexo=tk.Entry(ventana, width=30)
-csexo.grid(row = 10, column = 0, pady = 4)
+elige_genero = tk.StringVar()
+
+tk.Radiobutton(ventana, text="Masculino", variable=elige_genero, value="Masculino").grid(row=10, column=0, pady=4)
+tk.Radiobutton(ventana, text="Femenino", variable=elige_genero, value="Femenino").grid(row=11, column=0, pady=4)
+
+ltelefono=tk.Label(ventana,text="telefono:")
+ltelefono.grid(row=12, column=0, pady=4)
+ctelefono=tk.Entry(ventana, width=30)
+ctelefono.grid(row=13, column=0, pady=4)
+
+lciudad=tk.Label(ventana,text="ciudad:")
+lciudad.grid(row=14, column=0, pady=4)
+
+selecciona_ciudad = tk.StringVar()
+
+ciudades = ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena"]
+
+ciudad_lista = tk.Listbox(ventana, listvariable=selecciona_ciudad, height=5)
+ciudad_lista.grid(row=15, column=0, pady=4)
+for ciudad in ciudades:
+    ciudad_lista.insert(tk.END, ciudad)
+
 
 Registrar = tk.Button(ventana, text="Registrar", command=registrar)
-Registrar.grid(row = 11, column = 0, pady = 4)
+Registrar.grid(row = 16, column = 0, pady = 4)
 
 
 ventana.mainloop()
+
