@@ -2,9 +2,11 @@ import tkinter as tk
 from tkinter import messagebox
 
 def registrar():
-    mensaje = f"Nombre: {cnombre.get()}\nApellido: {capellido.get()}\nEdad: {cedad.get()}\nDirección: {cdireccion.get()}\nSexo: {elige_genero.get()}\nTeléfono: {ctelefono.get()}\nCiudad: {selecciona_ciudad.get()}"
+    ciudad_seleccionada_index = ciudad_lista.curselection()[0]
+    ciudad_seleccionada = ciudades[ciudad_seleccionada_index]
+    mensaje = f"Nombre: {cnombre.get()}\nApellido: {capellido.get()}\nEdad: {cedad.get()}\nDirección: {cdireccion.get()}\nSexo: {elige_genero.get()}\nTeléfono: {ctelefono.get()}\nCiudad: {ciudad_seleccionada}"
     messagebox.showinfo("Datos registrados", mensaje)
-
+    
 ventana=tk.Tk()
 ventana.title("Tecnar App")
 ventana.geometry("800x600")
@@ -46,7 +48,6 @@ lciudad=tk.Label(ventana,text="ciudad:")
 lciudad.grid(row=14, column=0, pady=4)
 
 selecciona_ciudad = tk.StringVar()
-
 ciudades = ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena"]
 
 ciudad_lista = tk.Listbox(ventana, listvariable=selecciona_ciudad, height=5)
@@ -60,4 +61,6 @@ Registrar.grid(row = 16, column = 0, pady = 4)
 
 
 ventana.mainloop()
+
+
 
