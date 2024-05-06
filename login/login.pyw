@@ -30,7 +30,7 @@ def centrar_contenido():
 
 centrar_contenido()
 
-etiqueta = tk.Label(frame2, text="LOGIN", bg="black", fg="white", font=("Arial", 16), width=20, height=2, anchor="center")
+etiqueta = tk.Label(frame2, text="Inicio de Sesion", bg="black", fg="white", font=("Arial", 16), width=20, height=2, anchor="center")
 etiqueta.grid(row=0, column=0, columnspan=2, pady=(10, 20), sticky="n")
 
 usuario_label = tk.Label(frame2, text="Usuario:", bg="lightgrey")
