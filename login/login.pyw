@@ -17,11 +17,9 @@ label = tk.Label(frame1, image=imagen)
 label.image = imagen
 label.place(relx=0.5, rely=0.3, anchor="center")
 
-# Segundo frame para el inicio de sesión - A la derecha
 frame2 = tk.Frame(ventana, width=300, height=300, relief="raised", bd=1, bg="lightgrey")
 frame2.grid(row=0, column=1, pady=10, padx=10)
 
-# Función para centrar el contenido en el frame2 y moverlo un poco a la derecha y abajo
 def centrar_contenido():
     frame2.update_idletasks()
     width = frame2.winfo_width()
@@ -30,10 +28,8 @@ def centrar_contenido():
     y = (frame2.winfo_toplevel().winfo_height() - height) / 2
     frame2.place(in_=ventana, relx=0.65, rely=0.6, x=-width/2, y=-height/2)
 
-# Llamar a la función para centrar el contenido
 centrar_contenido()
 
-# Etiqueta LOGIN dentro del segundo frame
 etiqueta = tk.Label(frame2, text="LOGIN", bg="black", fg="white", font=("Arial", 16), width=20, height=2, anchor="center")
 etiqueta.grid(row=0, column=0, columnspan=2, pady=(10, 20), sticky="n")
 
