@@ -6,7 +6,6 @@ ventana.title("Tecnar App")
 ventana.geometry("800x500")
 ventana.resizable(False,False)
 
-# Primer frame
 frame1 = tk.Frame(ventana, width=300, height=800, relief="raised", bd=1, bg="skyblue")
 frame1.grid(row=0, column=0, pady=0)
 
