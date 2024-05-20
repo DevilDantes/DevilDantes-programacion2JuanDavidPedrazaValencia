@@ -1,0 +1,18 @@
+{
+    "clientes": [
+        {
+            "cedula":"1001974252",
+            "nombre": "Juan Perez",
+            "direccion": "Calle Falsa 123",
+            "telefono": "555-1234",
+            "correo": "juanperez@example.com"
+        },
+        {
+            "cedula":"1001974252",
+            "nombre": "Maria Gomez",
+            "direccion": "Avenida Siempre Viva 742",
+            "telefono": "555-5678",
+            "correo": "mariagomez@example.com"
+        }
+    ]
+}

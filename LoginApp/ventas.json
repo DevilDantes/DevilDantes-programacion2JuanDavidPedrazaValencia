@@ -1,0 +1,62 @@
+{
+    "ventas": [
+        {
+            "venta_id": "V001",
+            "fecha": "2023-05-18",
+            "cliente": {
+                "cliente_id": "CL001",
+                "nombre": "Juan Pérez",
+                "email": "juan.perez@example.com",
+                "telefono": "123456789"
+            },
+            "productos": [
+                {
+                    "producto_id": "P001",
+                    "nombre": "Smartphone",
+                    "cantidad": 2,
+                    "precio_unitario": 299.99
+                },
+                {
+                    "producto_id": "P002",
+                    "nombre": "Camiseta",
+                    "cantidad": 1,
+                    "precio_unitario": 19.99
+                }
+            ],
+            "total": 619.97,
+            "vendedor": {
+                "vendedor_id": "V001",
+                "nombre": "Ana López"
+            },
+            "estado": "Completada",
+            "metodo_pago": "Tarjeta de Crédito"
+        },
+        {
+            "venta_id": "V002",
+            "fecha": "2023-05-19",
+            "cliente": {
+                "cliente_id": "CL002",
+                "nombre": "María González",
+                "email": "maria.gonzalez@example.com",
+                "telefono": "987654321"
+            },
+            "productos": [
+                {
+                    "producto_id": "P003",
+                    "nombre": "Sofá",
+                    "cantidad": 1,
+                    "precio_unitario": 399.99
+                }
+            ],
+            "total": 399.99,
+            "vendedor": {
+                "vendedor_id": "V002",
+                "nombre": "Carlos Martínez"
+            },
+            "estado": "Pendiente",
+            "metodo_pago": "Efectivo"
+        }
+
+
+    ]
+}
