@@ -1,0 +1,29 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Producto 1",
+            "precio": "10.00",
+            "stock": 5,
+            "image_path": "D:\\LoginApp\\imagenes\\producto1.png",
+            "categoria": "televisores"
+        },
+        {
+            "id": 2,
+            "nombre": "Producto 2",
+            "precio": "20.00",
+            "stock": 3,
+            "image_path": "D:\\LoginApp\\imagenes\\producto2.png",
+            "categoria": "Teléfonos"
+
+        },
+        {
+            "id": 3,
+            "nombre": "Producto 3",
+            "precio": "30.00",
+            "stock": 2,
+            "image_path": "D:\\LoginApp\\imagenes\\producto3.png",
+            "categoria": "Teléfonos"
+        }
+    ]
+}
