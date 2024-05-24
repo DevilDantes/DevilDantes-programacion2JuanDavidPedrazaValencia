@@ -14,8 +14,7 @@
             "precio": "20.00",
             "stock": 3,
             "image_path": "D:\\LoginApp\\imagenes\\producto2.png",
-            "categoria": "Teléfonos"
-
+            "categoria": "Tel\u00e9fonos"
         },
         {
             "id": 3,
@@ -23,7 +22,15 @@
             "precio": "30.00",
             "stock": 2,
             "image_path": "D:\\LoginApp\\imagenes\\producto3.png",
-            "categoria": "Teléfonos"
+            "categoria": "Tel\u00e9fonos"
+        },
+        {
+            "id": "12315313",
+            "nombre": "Pepe",
+            "precio": "250.000",
+            "stock": "100",
+            "image_path": "D:\\\\LoginApp\\\\imagenes\\\\producto1.png",
+            "categoria": "Consolador"
         }
     ]
 }
