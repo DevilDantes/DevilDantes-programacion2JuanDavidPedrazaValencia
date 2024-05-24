@@ -1,8 +1,9 @@
 import tkinter as tk
 import util.generic as utl
 from tkinter import messagebox
+from PIL import Image, ImageTk
 import json
-
+from formularios.PCliente import Clientes
 from formularios.PAdmin import PAdmin
 from formularios.PVentas import PVentas
 
@@ -13,8 +14,9 @@ class Login(tk.Tk):
         self.title("INGRESO AL SISTEMA")
         self.resizable(False, False)
         utl.centrar_ventana(self, 800, 500)
-        self.logo = utl.leer_imagen(r"C:\Users\Javier\Downloads\PROGIITECNAR-main\PROGIITECNAR-main\Clase9\LoginApp\imagenes\logo.png", (300, 100))
-        self.user = utl.leer_imagen(r"C:\Users\Javier\Downloads\PROGIITECNAR-main\PROGIITECNAR-main\Clase9\LoginApp\imagenes\login.png", (48, 48))
+        self.logo = utl.leer_imagen(r"D:\\LoginApp\\imagenes\\logo.png", (300, 100))
+        self.user = utl.leer_imagen(r"D:\\LoginApp\\imagenes\\login.png", (64, 64))
+        
         # frame_logo
         self.frame_logo = tk.Frame(self, bd=0, width=300,relief=tk.SOLID)
         self.frame_logo.pack(side=tk.LEFT, expand=tk.YES, fill=tk.BOTH)
@@ -43,7 +45,7 @@ class Login(tk.Tk):
         self.bregistrar.pack(fill=tk.X, padx=10, pady=10)
 
     def validar(self):
-        with open(r"C:\Users\Javier\Downloads\PROGIITECNAR-main\PROGIITECNAR-main\Clase9\LoginApp\db_users.json", "r", encoding='utf-8') as file:
+        with open("D:\LoginApp\db_users.json", "r", encoding='utf-8') as file:
             db_users = json.load(file)
         if self.cusuario.get()=="" and self.cclave.get() == "":
             messagebox.showerror('Error',"Debes llenar los campos de Usuario / Contraseña",parent=self)
@@ -56,6 +58,9 @@ class Login(tk.Tk):
                 elif self.cusuario.get() == usuarios["username"] and self.cclave.get() == usuarios["password"] and usuarios["role"] == "Vendedor":
                     self.destroy()
                     PVentas(usuarios["name"],usuarios["username"],usuarios["email"]).mainloop()
+                if self.cusuario.get() == usuarios["username"] and self.cclave.get() == usuarios["password"] and usuarios["role"] == "Cliente":
+                    self.destroy()
+                    Clientes(usuarios["name"],usuarios["username"],usuarios["email"]).mainloop()
         
             messagebox.showerror('Error',"Usuario / Contraseña errados",parent=self)
 
