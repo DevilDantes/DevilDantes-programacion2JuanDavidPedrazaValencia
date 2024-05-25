@@ -1,0 +1,60 @@
+{
+    "productos": [
+        {
+            "id": "1",
+            "nombre": "Producto 1",
+            "precio": 10.0,
+            "stock": 4,
+            "image_path":"D:\\LoginApp\\imagenes\\producto1.png",
+            "categoria": "Televisores"
+        },
+        {
+            "id": "2",
+            "nombre": "asdas",
+            "precio": "35555",
+            "stock": 500,
+            "image_path":"D:\\LoginApp\\imagenes\\producto2.png",
+            "categoria": "television"
+        },
+        {
+            "id": "3",
+            "nombre": "Producto 3",
+            "precio": "30.0",
+            "stock": 501,
+            "image_path": "D:\\LoginApp\\imagenes\\producto3.png",
+            "categoria": "Teléfonos"
+        },
+        {
+            "id": "12315313",
+            "nombre": "asdasa",
+            "precio": "35555",
+            "stock": 500,
+            "image_path":"D:\\LoginApp\\imagenes\\producto1.png",
+            "categoria": "television"
+        },
+        {
+            "id": "1555",
+            "nombre": "Perico",
+            "precio": "155555",
+            "stock": 0,
+            "image_path": "0",
+            "categoria": "0"
+        },
+        {
+            "id": "1000",
+            "nombre": "Pericos",
+            "precio": "450000",
+            "stock": 0,
+            "image_path": "0",
+            "categoria": "0"
+        },
+        {
+            "id": "asd",
+            "nombre": "asdasd",
+            "precio": "ads",
+            "stock": 5,
+            "image_path": "a",
+            "categoria": "ads"
+        }
+    ]
+}

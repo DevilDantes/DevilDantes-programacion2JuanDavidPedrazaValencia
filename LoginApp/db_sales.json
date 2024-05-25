@@ -1,0 +1,11 @@
+{
+    "ventas": [
+        {
+            "id_venta": "1",
+            "id_producto": "101",
+            "cantidad": "3",
+            "precio_total": "300",
+            "fecha": "2024-01-01"
+        }
+    ]
+}
